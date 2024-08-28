@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="StartGamePageArrowIcons">
+        <Viewbox>
+            <Grid>
+                <Path Data="M195.899 47.5858L179.594 42.2025C110.555 19.4088 31.0438 72.475 2.00001 160.73M195.899 47.5858L155.967 74.2369M195.899 47.5858L179.616 2.37476" Stroke="white" StrokeThickness="3" StrokeStartLineCap="round"/>
+            </Grid>
+        </Viewbox>
+    </DataTemplate>
+</ResourceDictionary>

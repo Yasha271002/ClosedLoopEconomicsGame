@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Montserrat-Black.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-ExtraBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-ExtraLightItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Italic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Light.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Regular.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-Thin.ttf" />
+    <None Remove="Resources\Fonts\Montserrat-ThinItalic.ttf" />
+    <None Remove="Resources\Images\EndGamePopup\SadImagePopup.png" />
+    <None Remove="Resources\Images\EndGamePopup\WinnerImagePopup.png" />
+    <None Remove="Resources\Images\GamePageBackground.png" />
+    <None Remove="Resources\Images\GamePageImages\BlueContainer.png" />
+    <None Remove="Resources\Images\GamePageImages\CenterConainerBackground.png" />
+    <None Remove="Resources\Images\GamePageImages\GreenContainer.png" />
+    <None Remove="Resources\Images\GamePageImages\OrangeContainer.png" />
+    <None Remove="Resources\Images\GamePageImages\WomanTextBackground.png" />
+    <None Remove="Resources\Images\GamePageImages\YellowContainer.png" />
+    <None Remove="Resources\Images\MainPageBackground.png" />
+    <None Remove="Resources\Images\MainPageImages\MainPageDescriptionTextImage.png" />
+    <None Remove="Resources\Images\MainPageImages\MainPageTextBackground.png" />
+    <None Remove="Resources\Images\MainPageImages\MainPageTextImage.png" />
+    <None Remove="Resources\Images\StartGamePageImages\EatingImage.png" />
+    <None Remove="Resources\Images\StartGamePageImages\FactoryImage.png" />
+    <None Remove="Resources\Images\StartGamePageImages\GrabageImage.png" />
+    <None Remove="Resources\Images\StartGamePageImages\RecycleImage.png" />
+    <None Remove="Resources\Images\StartGamePageImages\StartGamePageTextBackground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\Converters\" />
+    <Folder Include="ViewModel\Window\" />
+    <Folder Include="ViewModel\Popups\" />
+    <Folder Include="View\Window\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CommonControls">
+      <HintPath>Library\CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>Library\Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Montserrat-Black.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-BlackItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-ExtraBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-ExtraLightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Italic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Light.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-LightItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-MediumItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-SemiBold.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-Thin.ttf" />
+    <Resource Include="Resources\Fonts\Montserrat-ThinItalic.ttf" />
+    <Resource Include="Resources\Images\EndGamePopup\SadImagePopup.png" />
+    <Resource Include="Resources\Images\EndGamePopup\WinnerImagePopup.png" />
+    <Resource Include="Resources\Images\GamePageBackground.png" />
+    <Resource Include="Resources\Images\GamePageImages\BlueContainer.png" />
+    <Resource Include="Resources\Images\GamePageImages\CenterConainerBackground.png" />
+    <Resource Include="Resources\Images\GamePageImages\GreenContainer.png" />
+    <Resource Include="Resources\Images\GamePageImages\OrangeContainer.png" />
+    <Resource Include="Resources\Images\GamePageImages\WomanTextBackground.png" />
+    <Resource Include="Resources\Images\GamePageImages\YellowContainer.png" />
+    <Resource Include="Resources\Images\MainPageImages\MainPageBackground.png" />
+    <Resource Include="Resources\Images\MainPageImages\MainPageDescriptionTextImage.png" />
+    <Resource Include="Resources\Images\MainPageImages\MainPageTextBackground.png" />
+    <Resource Include="Resources\Images\MainPageImages\MainPageTextImage.png" />
+    <Resource Include="Resources\Images\StartGamePageImages\EatingImage.png" />
+    <Resource Include="Resources\Images\StartGamePageImages\FactoryImage.png" />
+    <Resource Include="Resources\Images\StartGamePageImages\GrabageImage.png" />
+    <Resource Include="Resources\Images\StartGamePageImages\RecycleImage.png" />
+    <Resource Include="Resources\Images\StartGamePageImages\StartGamePageTextBackground.png" />
+  </ItemGroup>
+
+</Project>

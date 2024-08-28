@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="ClosedLoopEconomicsGame.View.Popups.RecyclingCyclePopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ClosedLoopEconomicsGame.View.Popups"
+             mc:Ignorable="d"
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             d:DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="ButtonBorderStyle">
+            <Setter Property="BorderBrush" Value="{DynamicResource MainColor}" />
+            <Setter Property="CornerRadius" Value="20" />
+        </Style>
+        <Style TargetType="Button" x:Key="StartGamePageBorderTextBackground">
+            <Setter Property="Width" Value="469"/>
+            <Setter Property="Height" Value="383"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/Images/StartGamePageImages/StartGamePageTextBackground.png"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Button
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 -30"
+                    Style="{DynamicResource StartGamePageBorderTextBackground}">
+                    <Grid>
+                        <Image Source="{Binding CategoryInfoModel.TopImagePath}"
+                               Width="350"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 0 37" />
+                    </Grid>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button
+                    HorizontalAlignment="Right"
+                    Margin="0 0 60 0"
+                    Style="{DynamicResource StartGamePageBorderTextBackground}">
+                    <Grid>
+
+                        <Image Source="{Binding CategoryInfoModel.LeftImagePath}"
+                               Width="320"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 0 26" />
+                    </Grid>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Button
+                    HorizontalAlignment="Left"
+                    Margin="50 0 0 0"
+                    Style="{DynamicResource StartGamePageBorderTextBackground}">
+                    <Grid>
+                        <Image Source="{Binding CategoryInfoModel.RightImagePath}"
+                               Width="284"
+                               VerticalAlignment="Bottom"
+                               Margin=" 0 0 0 40" />
+                    </Grid>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1" >
+                <Button
+                    VerticalAlignment="Center"
+                    Margin="0 -76 0 0"
+                    Style="{DynamicResource StartGamePageBorderTextBackground}">
+                    <Grid>
+                        <Image Source="{Binding CategoryInfoModel.BottomImagePath}"
+                               Width="194"
+                               VerticalAlignment="Bottom"
+                               Margin="0 0 0 40" />
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <StackPanel
+                    VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource GameText}"
+                               Text="Нажми на фигуру "
+                               Foreground="White"/>
+                    <TextBlock Style="{DynamicResource GameText}"
+                               FontSize="20"
+                               Text="чтобы раскрыть подробную информацию"
+                               Foreground="White"
+                               Margin="0 12 0 0"/>
+                </StackPanel>
+            </Grid>
+
+            <ContentPresenter Grid.Row="0" Grid.Column="0"
+                              ContentTemplate="{DynamicResource StartGamePageArrowIcons}"
+                              RenderTransformOrigin="0.5 0.5"
+                              Width="236"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="191 50 0 0">
+                <ContentPresenter.RenderTransform>
+                    <RotateTransform Angle="0" />
+                </ContentPresenter.RenderTransform>
+            </ContentPresenter>
+            <ContentPresenter Grid.Column="2" Grid.Row="0"
+                              ContentTemplate="{DynamicResource StartGamePageArrowIcons}"
+                              RenderTransformOrigin="0.5 0.5"
+                              Width="285"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Bottom"
+                              Margin="0 0 321 40">
+                <ContentPresenter.RenderTransform>
+                    <RotateTransform Angle="68" />
+                </ContentPresenter.RenderTransform>
+            </ContentPresenter>
+            <ContentPresenter Grid.Row="2" Grid.Column="0"
+                              ContentTemplate="{DynamicResource StartGamePageArrowIcons}"
+                              RenderTransformOrigin="0.5 0.5"
+                              Width="283"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="200 53 0 0">
+                <ContentPresenter.RenderTransform>
+                    <RotateTransform Angle="230" />
+                </ContentPresenter.RenderTransform>
+            </ContentPresenter>
+            <ContentPresenter Grid.Row="2" Grid.Column="2"
+                              ContentTemplate="{DynamicResource StartGamePageArrowIcons}"
+                              RenderTransformOrigin="0.5 0.5"
+                              Width="260"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="40 20 0 0">
+                <ContentPresenter.RenderTransform>
+                    <RotateTransform Angle="200" />
+                </ContentPresenter.RenderTransform>
+            </ContentPresenter>
+        </Grid>
+        <Button Template="{DynamicResource MainButtonTemplate}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Width="266" Height="101"
+                Foreground="White"
+                Content="Закрыть"
+                Margin="40" />
+    </Grid>
+</UserControl>

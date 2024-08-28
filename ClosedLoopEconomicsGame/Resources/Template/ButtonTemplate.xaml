@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="MainButtonTemplate" TargetType="Button">
+        <Border
+            Style="{DynamicResource ButtonBorderStyle}"
+            Background="{DynamicResource MainColor}">
+            <TextBlock
+                Style="{DynamicResource ButtonTextBlockStyle}"
+                Foreground="{TemplateBinding Foreground}"
+                Text="{TemplateBinding Content}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+</ResourceDictionary>
