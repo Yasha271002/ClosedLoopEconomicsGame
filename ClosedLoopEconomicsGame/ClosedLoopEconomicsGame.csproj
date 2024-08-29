@@ -32,6 +32,7 @@
     <None Remove="Resources\Images\GamePageBackground.png" />
     <None Remove="Resources\Images\GamePageImages\BlueContainer.png" />
     <None Remove="Resources\Images\GamePageImages\CenterConainerBackground.png" />
+    <None Remove="Resources\Images\GamePageImages\ChildrenImage.png" />
     <None Remove="Resources\Images\GamePageImages\GreenContainer.png" />
     <None Remove="Resources\Images\GamePageImages\OrangeContainer.png" />
     <None Remove="Resources\Images\GamePageImages\WomanTextBackground.png" />
@@ -48,14 +49,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\Converters\" />
     <Folder Include="ViewModel\Window\" />
-    <Folder Include="ViewModel\Popups\" />
-    <Folder Include="View\Window\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -91,6 +90,7 @@
     <Resource Include="Resources\Images\GamePageBackground.png" />
     <Resource Include="Resources\Images\GamePageImages\BlueContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\CenterConainerBackground.png" />
+    <Resource Include="Resources\Images\GamePageImages\ChildrenImage.png" />
     <Resource Include="Resources\Images\GamePageImages\GreenContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\OrangeContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\WomanTextBackground.png" />

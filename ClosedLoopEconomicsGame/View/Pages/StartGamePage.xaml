@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:ClosedLoopEconomicsGame.View.Pages"
+      xmlns:helpers="clr-namespace:ClosedLoopEconomicsGame.Helpers"
       mc:Ignorable="d"
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="StartGamePage"
@@ -139,6 +140,8 @@
                 VerticalAlignment="Bottom"
                 Content="Играть"
                 Foreground="White"
-                Margin="0 0 0 38" />
+                Margin="0 0 0 38"
+                Command="helpers:CommonCommands.NavigateCommand"
+                CommandParameter="{x:Static helpers:PageTypes.AfterGamePage}"/>
     </Grid>
 </Page>

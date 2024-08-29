@@ -1,7 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using ClosedLoopEconomicsGame.Model;
 using ClosedLoopEconomicsGame.View.Pages;
+using ClosedLoopEconomicsGame.View.Popups;
+using ClosedLoopEconomicsGame.ViewModel.Popups;
 using RelayCommand = Core.RelayCommand;
 
 namespace ClosedLoopEconomicsGame.Helpers
@@ -16,6 +20,7 @@ namespace ClosedLoopEconomicsGame.Helpers
                 PageTypes.None => null,
                 PageTypes.MainPage => new MainPage(),
                 PageTypes.StartGamePage => new StartGamePage(),
+                PageTypes.AfterGamePage => new AfterGamePage(),
                 _ => null
             };
         }
@@ -82,6 +87,8 @@ namespace ClosedLoopEconomicsGame.Helpers
         {
             return content switch
             {
+                RecycleCircleInfoModel categoryInfo => new RecyclingCyclePopup{DataContext = new RecyclingCyclePopupViewModel(categoryInfo)},
+                CategoryInfoModel category => new CategoryInfoPopupSlider{DataContext = new CategoryInfoPopupSliderViewModel(category)},
                 _ => null
             };
         }

@@ -4,20 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ClosedLoopEconomicsGame.View.Popups"
+             xmlns:popups="clr-namespace:ClosedLoopEconomicsGame.ViewModel.Popups"
+             xmlns:helpers="clr-namespace:ClosedLoopEconomicsGame.Helpers"
              mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920"
-             d:DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             d:DataContext="{d:DesignInstance popups:RecyclingCyclePopupViewModel}">
     <UserControl.Resources>
         <Style TargetType="Border" x:Key="ButtonBorderStyle">
             <Setter Property="BorderBrush" Value="{DynamicResource MainColor}" />
             <Setter Property="CornerRadius" Value="20" />
         </Style>
-        <Style TargetType="Button" x:Key="StartGamePageBorderTextBackground">
-            <Setter Property="Width" Value="469"/>
-            <Setter Property="Height" Value="383"/>
+        <Style TargetType="Border" x:Key="StartGamePageBorderTextBackground">
+            <Setter Property="Width" Value="469" />
+            <Setter Property="Height" Value="383" />
             <Setter Property="Background">
                 <Setter.Value>
-                    <ImageBrush ImageSource="/Resources/Images/StartGamePageImages/StartGamePageTextBackground.png"/>
+                    <ImageBrush ImageSource="/Resources/Images/StartGamePageImages/StartGamePageTextBackground.png" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -39,53 +41,76 @@
                 <Button
                     VerticalAlignment="Bottom"
                     Margin="0 0 0 -30"
-                    Style="{DynamicResource StartGamePageBorderTextBackground}">
-                    <Grid>
-                        <Image Source="{Binding CategoryInfoModel.TopImagePath}"
-                               Width="350"
-                               VerticalAlignment="Bottom"
-                               Margin="0 0 0 37" />
-                    </Grid>
+                    Command="{Binding OpenInfoPopupCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
+                                <Image
+                                    Source="{Binding CircleInfoModel.Category.TopImagePath , Converter={StaticResource ImageConverter} }"
+                                    MaxWidth="450"
+                                    MaxHeight="300"
+                                    VerticalAlignment="Bottom"
+                                    Margin="0 0 0 50" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Button
                     HorizontalAlignment="Right"
                     Margin="0 0 60 0"
-                    Style="{DynamicResource StartGamePageBorderTextBackground}">
-                    <Grid>
-
-                        <Image Source="{Binding CategoryInfoModel.LeftImagePath}"
-                               Width="320"
-                               VerticalAlignment="Bottom"
-                               Margin="0 0 0 26" />
-                    </Grid>
+                    Command="{Binding OpenInfoPopupCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
+                                <Image
+                                    Source="{Binding CircleInfoModel.Category.LeftImagePath , Converter={StaticResource ImageConverter}}"
+                                    MaxWidth="350"
+                                    MaxHeight="300"
+                                    VerticalAlignment="Bottom"
+                                    Margin="0 0 0 70" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="2">
                 <Button
                     HorizontalAlignment="Left"
                     Margin="50 0 0 0"
-                    Style="{DynamicResource StartGamePageBorderTextBackground}">
-                    <Grid>
-                        <Image Source="{Binding CategoryInfoModel.RightImagePath}"
-                               Width="284"
-                               VerticalAlignment="Bottom"
-                               Margin=" 0 0 0 40" />
-                    </Grid>
+                    Command="{Binding OpenInfoPopupCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
+                                <Image
+                                    Source="{Binding CircleInfoModel.Category.RightImagePath , Converter={StaticResource ImageConverter}}"
+                                    MaxWidth="350"
+                                    MaxHeight="300"
+                                    VerticalAlignment="Bottom"
+                                    Margin=" 0 0 0 70" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="1" >
+            <Grid Grid.Row="2" Grid.Column="1">
                 <Button
                     VerticalAlignment="Center"
                     Margin="0 -76 0 0"
-                    Style="{DynamicResource StartGamePageBorderTextBackground}">
-                    <Grid>
-                        <Image Source="{Binding CategoryInfoModel.BottomImagePath}"
-                               Width="194"
-                               VerticalAlignment="Bottom"
-                               Margin="0 0 0 40" />
-                    </Grid>
+                    Command="{Binding OpenInfoPopupCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
+                                <Image
+                                    Source="{Binding CircleInfoModel.Category.BottomImagePath, Converter={StaticResource ImageConverter}}"
+                                    MaxWidth="350"
+                                    MaxHeight="300"
+                                    VerticalAlignment="Bottom"
+                                    Margin="10 0 0 60" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </Grid>
 
@@ -94,12 +119,12 @@
                     VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource GameText}"
                                Text="Нажми на фигуру "
-                               Foreground="White"/>
+                               Foreground="White" />
                     <TextBlock Style="{DynamicResource GameText}"
                                FontSize="20"
                                Text="чтобы раскрыть подробную информацию"
                                Foreground="White"
-                               Margin="0 12 0 0"/>
+                               Margin="0 12 0 0" />
                 </StackPanel>
             </Grid>
 
@@ -154,6 +179,7 @@
                 Width="266" Height="101"
                 Foreground="White"
                 Content="Закрыть"
-                Margin="40" />
+                Margin="40"
+                Command="helpers:CommonCommands.ClosePopupCommand"/>
     </Grid>
 </UserControl>

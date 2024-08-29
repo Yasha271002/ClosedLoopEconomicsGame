@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClosedLoopEconomicsGame.Model;
 
 namespace ClosedLoopEconomicsGame.View.Popups
 {
     /// <summary>
-    /// Логика взаимодействия для RecyclingCyclePopupViewModel.xaml
+    /// Логика взаимодействия для ResultGamePopup.xaml
     /// </summary>
-    public partial class RecyclingCyclePopup : UserControl
+    public partial class ResultGamePopup : UserControl
     {
-
-        public RecyclingCyclePopup()
+        public ResultGamePopup()
         {
             InitializeComponent();
         }
-
-        
     }
 }

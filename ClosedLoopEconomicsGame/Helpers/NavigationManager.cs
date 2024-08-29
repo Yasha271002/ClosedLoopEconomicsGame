@@ -8,6 +8,7 @@ namespace ClosedLoopEconomicsGame.Helpers
     {
         MainPage,
         StartGamePage,
+        AfterGamePage,
         None
     }
     public enum PopupTypes
