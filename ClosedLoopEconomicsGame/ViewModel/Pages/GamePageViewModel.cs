@@ -158,6 +158,7 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
                    ImagePath = "Content/EndGamePopup/SadImagePopup.png",
                    Replay = true
                };
+               SoundHelper.LoseGameEndedSound.Play();
            }
            else if (WrongAnswersCount <= CorrectAnswersCount)
            {
@@ -168,9 +169,10 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
                    ImagePath = "Content/EndGamePopup/WinnerImagePopup.png",
                    Replay = false
                };
-           }
-           if (WrongAnswersCount <= 10)
-           {
+               SoundHelper.GameEndedSound.Play();
+            }
+            if (WrongAnswersCount <= 10)
+            {
                result = new ResultGameModel
                {
                    Title = "Молодец!",
@@ -178,8 +180,7 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
                    ImagePath = "Content/EndGamePopup/WinnerImagePopup.png",
                    Replay = false
                };
-           }
-
+            }
             CommonCommands.OpenPopupCommand.Execute(result);
         }
 

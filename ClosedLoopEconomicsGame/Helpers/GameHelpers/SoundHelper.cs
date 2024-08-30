@@ -11,6 +11,7 @@ namespace ClosedLoopEconomicsGame.Helpers.GameHelpers
         public static SoundHelper CorrectAnswerSound { get; private set; }
         public static SoundHelper WrongAnswerSound { get; private set; }
         public static SoundHelper GameEndedSound { get; private set; }
+        public static SoundHelper LoseGameEndedSound { get; private set; }
 
         static SoundHelper()
         {
@@ -37,6 +38,7 @@ namespace ClosedLoopEconomicsGame.Helpers.GameHelpers
             CorrectAnswerSound = new SoundHelper("correct_answer");
             WrongAnswerSound = new SoundHelper("wrong_answer");
             GameEndedSound = new SoundHelper("game_ended");
+            LoseGameEndedSound = new SoundHelper("lose_game_ended");
         }
 
         private static MediaPlayer? TryLoad(string? name)
