@@ -13,7 +13,7 @@
         </Grid.RenderTransform>
 
         <Grid Margin="0,-8,-9,0">
-            <Image Source="../../Resources/Images/Elements/меню 2-06.png">
+            <Image Source="../../../Resources/Images/GamePageImages/Correct.png">
                 <Image.Style>
                     <Style TargetType="Image">
                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -26,7 +26,7 @@
                 </Image.Style>
             </Image>
 
-            <Image Source="../../Resources/Images/Elements/меню 2-13.png"
+            <Image Source="../../../Resources/Images/GamePageImages/WrongAnswer.png"
                    Margin="-8,0,0,-7">
                 <Image.Style>
                     <Style TargetType="Image">

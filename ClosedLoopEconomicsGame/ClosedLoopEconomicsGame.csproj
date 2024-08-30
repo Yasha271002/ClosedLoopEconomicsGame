@@ -38,9 +38,11 @@
     <None Remove="Resources\Images\GamePageImages\BlueContainer.png" />
     <None Remove="Resources\Images\GamePageImages\CenterConainerBackground.png" />
     <None Remove="Resources\Images\GamePageImages\ChildrenImage.png" />
+    <None Remove="Resources\Images\GamePageImages\Correct.png" />
     <None Remove="Resources\Images\GamePageImages\GreenContainer.png" />
     <None Remove="Resources\Images\GamePageImages\OrangeContainer.png" />
     <None Remove="Resources\Images\GamePageImages\WomanTextBackground.png" />
+    <None Remove="Resources\Images\GamePageImages\WrongAnswer.png" />
     <None Remove="Resources\Images\GamePageImages\YellowContainer.png" />
     <None Remove="Resources\Images\MainPageBackground.png" />
     <None Remove="Resources\Images\MainPageImages\MainPageDescriptionTextImage.png" />
@@ -90,9 +92,11 @@
     <Resource Include="Resources\Images\GamePageImages\BlueContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\CenterConainerBackground.png" />
     <Resource Include="Resources\Images\GamePageImages\ChildrenImage.png" />
+    <Resource Include="Resources\Images\GamePageImages\Correct.png" />
     <Resource Include="Resources\Images\GamePageImages\GreenContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\OrangeContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\WomanTextBackground.png" />
+    <Resource Include="Resources\Images\GamePageImages\WrongAnswer.png" />
     <Resource Include="Resources\Images\GamePageImages\YellowContainer.png" />
     <Resource Include="Resources\Images\MainPageImages\MainPageBackground.png" />
     <Resource Include="Resources\Images\MainPageImages\MainPageDescriptionTextImage.png" />

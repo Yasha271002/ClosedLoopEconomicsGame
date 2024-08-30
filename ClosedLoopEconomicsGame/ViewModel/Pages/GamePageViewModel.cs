@@ -149,7 +149,7 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
            //ShowResult();
            var result = new ResultGameModel();
            
-           if (WrongAnswersCount > CorrectAnswersCount)
+           if (WrongAnswersCount >= 15)
            {
                result = new ResultGameModel
                {
@@ -160,7 +160,7 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
                };
                SoundHelper.LoseGameEndedSound.Play();
            }
-           else if (WrongAnswersCount <= CorrectAnswersCount)
+           else if (WrongAnswersCount <= 14)
            {
                result = new ResultGameModel
                {
@@ -171,7 +171,7 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
                };
                SoundHelper.GameEndedSound.Play();
             }
-            if (WrongAnswersCount <= 10)
+            if (WrongAnswersCount <= 5)
             {
                result = new ResultGameModel
                {
