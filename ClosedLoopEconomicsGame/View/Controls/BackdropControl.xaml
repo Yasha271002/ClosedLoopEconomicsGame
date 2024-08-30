@@ -93,6 +93,7 @@
                              Command="helpers:CommonCommands.ClosePopupCommand"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top"
+                             Visibility="Hidden"
                              Margin="100 56 0 0"/>
                 </Grid>
 

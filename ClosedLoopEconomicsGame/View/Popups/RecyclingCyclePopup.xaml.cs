@@ -17,23 +17,14 @@ using ClosedLoopEconomicsGame.Model;
 namespace ClosedLoopEconomicsGame.View.Popups
 {
     /// <summary>
-    /// Логика взаимодействия для RecyclingCyclePopup.xaml
+    /// Логика взаимодействия для RecyclingCyclePopupViewModel.xaml
     /// </summary>
     public partial class RecyclingCyclePopup : UserControl
     {
-        public static readonly DependencyProperty CategoryInfoModelProperty = DependencyProperty.Register(
-            nameof(CategoryInfoModel), typeof(CategoryInfoModel), typeof(RecyclingCyclePopup), new PropertyMetadata(default(CategoryInfoModel)));
 
-        public CategoryInfoModel CategoryInfoModel
-        {
-            get { return (CategoryInfoModel)GetValue(CategoryInfoModelProperty); }
-            set { SetValue(CategoryInfoModelProperty, value); }
-        }
-
-        public RecyclingCyclePopup(CategoryInfoModel categoryInfo)
+        public RecyclingCyclePopup()
         {
             InitializeComponent();
-            CategoryInfoModel = categoryInfo;
         }
 
         

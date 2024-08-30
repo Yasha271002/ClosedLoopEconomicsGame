@@ -1,7 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using ClosedLoopEconomicsGame.Model;
 using ClosedLoopEconomicsGame.View.Pages;
+using ClosedLoopEconomicsGame.View.Popups;
+using ClosedLoopEconomicsGame.ViewModel.Popups;
 using RelayCommand = Core.RelayCommand;
 
 namespace ClosedLoopEconomicsGame.Helpers
@@ -16,6 +20,8 @@ namespace ClosedLoopEconomicsGame.Helpers
                 PageTypes.None => null,
                 PageTypes.MainPage => new MainPage(),
                 PageTypes.StartGamePage => new StartGamePage(),
+                PageTypes.AfterGamePage => new AfterGamePage(),
+                PageTypes.GamePage => new GamePage(),
                 _ => null
             };
         }
@@ -50,7 +56,6 @@ namespace ClosedLoopEconomicsGame.Helpers
         {
             return popupType switch
             {
-                
                 _ => null
             };
         }
@@ -77,11 +82,30 @@ namespace ClosedLoopEconomicsGame.Helpers
             NavigationManager.Instance.IsPopupOpen = true;
         });
 
+        public static ICommand OpenPopupByTypeCommand { get; } = new RelayCommand(obj =>
+        {
+            if (obj is PopupTypes popupType)
+            {
+                var popup = GetPopupByType(popupType);
+
+                if (popup is null)
+                    return;
+
+                NavigationManager.PopupFrame?.Navigate(popup);
+                NavigationManager.Instance.IsPopupOpen = true;
+            }
+        });
 
         private static UserControl? GetPopupByContent(object content)
         {
             return content switch
             {
+                ExitGamePopupViewModel _ => new ExitGamePopup { DataContext = content },
+                PopupParametersHelper parameters =>
+                    new CategoryInfoPopupSlider { DataContext = new CategoryInfoPopupSliderViewModel(parameters.CategoryInfo, parameters.SelectedImagePath) },
+                RecycleCircleInfoModel categoryInfo =>
+                    new RecyclingCyclePopup { DataContext = new RecyclingCyclePopupViewModel(categoryInfo) },
+                ResultGameModel resultGameModel => new ResultGamePopup{ DataContext = new ResultGamePopupViewModel(resultGameModel)},
                 _ => null
             };
         }

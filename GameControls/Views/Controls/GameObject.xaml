@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="GameLibrary.Views.Controls.GameObject"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GameLibrary"
+             xmlns:converters="clr-namespace:MainComponents.Converters;assembly=MainComponents"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+
+    <UserControl.RenderTransform>
+        <TranslateTransform x:Name="ObjectTranslateTransform" X="0" Y="0"/>
+    </UserControl.RenderTransform>
+
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
+        <Button Command="{Binding SelectCommand}"
+                CommandParameter="{Binding}"
+                Background="{x:Null}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="{Binding Model.ImagePath, Converter={converters:ImageConverter}}"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="{Binding Model.ImagePath, Converter={converters:ImageConverter}}"/>
+            </Button.OpacityMask>
+        </Button>
+
+        <ContentPresenter Content="{Binding AnswerCorrectnessDisplayControl}"
+                          VerticalAlignment="Bottom"
+                          HorizontalAlignment="Center"
+                          Height="30"
+                          Width="30"/>
+
+        <!--<Border BorderBrush="DarkMagenta"
+                BorderThickness="1"/>-->
+    </Grid>
+</UserControl>
