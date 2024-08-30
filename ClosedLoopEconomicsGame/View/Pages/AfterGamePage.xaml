@@ -29,10 +29,10 @@
 
         <Style TargetType="Grid" x:Key="GridAnimationHidden">
             <Setter Property="Opacity" Value="1" />
-            <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
-            <Setter Property="Visibility" Value="{Binding Visibility}" />
+            <Setter Property="IsEnabled" Value="{Binding IsClicked}" />
+            <Setter Property="Visibility" Value="Visible"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding IsEnabled, Mode=TwoWay}" Value="False">
+                <DataTrigger Binding="{Binding IsClicked, Mode=TwoWay}" Value="False">
                     <DataTrigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
@@ -43,6 +43,9 @@
                         </BeginStoryboard>
                     </DataTrigger.EnterActions>
                 </DataTrigger>
+                <Trigger Property="Opacity" Value="0.0">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
     </Page.Resources>
@@ -55,7 +58,8 @@
                 Margin="40"
                 Content="Закончить"
                 Foreground="White"
-                Command="helpers:CommonCommands.GoBackCommand" />
+                Command="helpers:CommonCommands.NavigateCommand"
+                CommandParameter="{x:Static helpers:PageTypes.MainPage}"/>
 
         <Grid VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
@@ -148,7 +152,7 @@
                             Content="Хорошо!"
                             Foreground="White"
                             Margin="0 34 0 0"
-                            Command="{Binding HiddenKidCommand}" />
+                            Command="{Binding HideContentCommand}" />
                 </StackPanel>
             </Border>
         </Grid>

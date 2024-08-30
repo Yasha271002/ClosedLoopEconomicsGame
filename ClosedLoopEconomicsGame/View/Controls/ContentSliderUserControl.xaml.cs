@@ -178,7 +178,7 @@ namespace ClosedLoopEconomicsGame.View.Controls
             //    if (i >= min && i <= max)
             //    {
             //        if (list[i]?.Source is null)
-            //            list[i] = new DisposableImage(list[i].ImagePath, height: 2049);
+            //            list[i] = new DisposableImage(list[i].ImagePaths, height: 2049);
             //    }
             //    else
             //    {

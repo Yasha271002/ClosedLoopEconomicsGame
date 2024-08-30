@@ -142,6 +142,6 @@
                 Foreground="White"
                 Margin="0 0 0 38"
                 Command="helpers:CommonCommands.NavigateCommand"
-                CommandParameter="{x:Static helpers:PageTypes.AfterGamePage}"/>
+                CommandParameter="{x:Static helpers:PageTypes.GamePage}"/>
     </Grid>
 </Page>

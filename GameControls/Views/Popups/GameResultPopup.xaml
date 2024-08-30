@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="GameLibrary.Views.Popups.GameResultPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:GameLibrary.Views.Popups"
+             xmlns:helpers="clr-namespace:GameLibrary.Helpers"
+             mc:Ignorable="d"
+             Height="540">
+
+    <UserControl.Resources>
+        <FontFamily x:Key="Graffiti">pack://application:,,,/Resources/Fonts/#Graffiti1CTT</FontFamily>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="{StaticResource Graffiti}" />
+            <Setter Property="Foreground" Value="#FFF6D9" />
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox>
+        <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}">
+            <Image Source="../../Resources/Images/Elements/menu-desk.png" />
+
+            <StackPanel Margin="0,80,0,0">
+                <TextBlock Text="Итог"
+                           FontSize="130"
+                           HorizontalAlignment="Center" />
+
+                <Grid HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2"
+                           Source="../../Resources/Images/Elements/menu-element.png" />
+
+                    <TextBlock Grid.Column="0"
+                               Text="Правильно:"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="88,0,0,0" />
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding CorrectAnswers}"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="0,0,115,0" />
+                </Grid>
+
+                <Grid HorizontalAlignment="Center"
+                      Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2"
+                           Source="../../Resources/Images/Elements/menu-element.png" />
+
+                    <TextBlock Grid.Column="0"
+                               Text="Ошибок:"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="88,0,0,0" />
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding WrongAnswers}"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="0,0,115,0" />
+                </Grid>
+
+                <Grid HorizontalAlignment="Center"
+                      Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Score}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+
+                    <Image Grid.ColumnSpan="2"
+                           Source="../../Resources/Images/Elements/menu-element.png" />
+
+                    <TextBlock Grid.Column="0"
+                               Text="Ваш счёт:"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="88,0,0,0" />
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Score}"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="0,0,115,0" />
+                </Grid>
+
+                <Grid HorizontalAlignment="Center"
+                      Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding BestScore}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+
+                    <Image Grid.ColumnSpan="2"
+                           Source="../../Resources/Images/Elements/menu-element.png" />
+
+                    <TextBlock Grid.Column="0"
+                               Text="Лучший счёт:"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="88,0,0,0" />
+
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding BestScore}"
+                               FontSize="80"
+                               VerticalAlignment="Center"
+                               Margin="0,0,115,0" />
+                </Grid>
+            </StackPanel>
+
+            <Button VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,196,0,-196"
+                    Command="helpers:CommonCommands.CloseAppCommand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="../../Resources/Images/Elements/exit-button.png" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
+</UserControl>

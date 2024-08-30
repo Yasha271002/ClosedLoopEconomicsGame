@@ -25,8 +25,8 @@ namespace ClosedLoopEconomicsGame.ViewModel.Popups
 
         public ICommand OpenInfoPopupCommand => GetOrCreate(new RelayCommand(f =>
         {
-            var categoryModel = CircleInfoModel.Category;
-            CommonCommands.OpenPopupCommand.Execute(categoryModel);
+            var parameters = new PopupParametersHelper(CircleInfoModel.Category!, (f as string)!);
+            CommonCommands.OpenPopupCommand.Execute(parameters);
         }));
     }
 }

@@ -21,6 +21,7 @@ namespace ClosedLoopEconomicsGame.Helpers
                 PageTypes.MainPage => new MainPage(),
                 PageTypes.StartGamePage => new StartGamePage(),
                 PageTypes.AfterGamePage => new AfterGamePage(),
+                PageTypes.GamePage => new GamePage(),
                 _ => null
             };
         }
@@ -55,7 +56,6 @@ namespace ClosedLoopEconomicsGame.Helpers
         {
             return popupType switch
             {
-                
                 _ => null
             };
         }
@@ -82,13 +82,30 @@ namespace ClosedLoopEconomicsGame.Helpers
             NavigationManager.Instance.IsPopupOpen = true;
         });
 
+        public static ICommand OpenPopupByTypeCommand { get; } = new RelayCommand(obj =>
+        {
+            if (obj is PopupTypes popupType)
+            {
+                var popup = GetPopupByType(popupType);
+
+                if (popup is null)
+                    return;
+
+                NavigationManager.PopupFrame?.Navigate(popup);
+                NavigationManager.Instance.IsPopupOpen = true;
+            }
+        });
 
         private static UserControl? GetPopupByContent(object content)
         {
             return content switch
             {
-                RecycleCircleInfoModel categoryInfo => new RecyclingCyclePopup{DataContext = new RecyclingCyclePopupViewModel(categoryInfo)},
-                CategoryInfoModel category => new CategoryInfoPopupSlider{DataContext = new CategoryInfoPopupSliderViewModel(category)},
+                ExitGamePopupViewModel _ => new ExitGamePopup { DataContext = content },
+                PopupParametersHelper parameters =>
+                    new CategoryInfoPopupSlider { DataContext = new CategoryInfoPopupSliderViewModel(parameters.CategoryInfo, parameters.SelectedImagePath) },
+                RecycleCircleInfoModel categoryInfo =>
+                    new RecyclingCyclePopup { DataContext = new RecyclingCyclePopupViewModel(categoryInfo) },
+                ResultGameModel resultGameModel => new ResultGamePopup{ DataContext = new ResultGamePopupViewModel(resultGameModel)},
                 _ => null
             };
         }

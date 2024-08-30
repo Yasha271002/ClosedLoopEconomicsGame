@@ -14,21 +14,9 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
 {
     public class AfterGameViewModel : ObservableObject
     {
-        public double Opacity
-        {
-            get => GetOrCreate(1.0);
-            set => SetAndNotify(value);
-        }
-
-        public bool IsEnabled
+        public bool IsClicked
         {
             get => GetOrCreate<bool>();
-            set => SetAndNotify(value);
-        }
-
-        public Visibility Visibility
-        {
-            get => GetOrCreate(Visibility.Visible);
             set => SetAndNotify(value);
         }
 
@@ -40,27 +28,15 @@ namespace ClosedLoopEconomicsGame.ViewModel.Pages
 
         public AfterGameViewModel()
         {
-            IsEnabled = true;
+            IsClicked = true;
             var helper = new ReadJsonHelper();
             var categories = helper.ReadJsonFromFile<ObservableCollection<RecycleCircleInfoModel>>("Content/AllCategoryInfo.json");
             CategoryInfos = new ObservableCollection<RecycleCircleInfoModel>(categories);
         }
 
-        private async void StartOpacityAnimation()
+        public ICommand HideContentCommand => GetOrCreate(new RelayCommand(f =>
         {
-            for (double i = 1.0; i >= 0.0; i -= 0.1)
-            {
-                Opacity = i;
-                await Task.Delay(70); 
-            }
-
-            Visibility = Visibility.Hidden;
-        }
-
-        public ICommand HiddenKidCommand => GetOrCreate(new RelayCommand(f =>
-        {
-            IsEnabled = false;
-            StartOpacityAnimation();
+            IsClicked = false;
         }));
 
         public ICommand OpenCategoryInfoCommand => GetOrCreate(new RelayCommand(f =>

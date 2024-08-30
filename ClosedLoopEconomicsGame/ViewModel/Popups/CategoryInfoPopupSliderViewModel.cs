@@ -11,23 +11,20 @@ namespace ClosedLoopEconomicsGame.ViewModel.Popups
 {
     public class CategoryInfoPopupSliderViewModel : ObservableObject
     {
-        public ObservableCollection<string> ImagePath
+        public ObservableCollection<string> ImagePaths
         {
             get => GetOrCreate<ObservableCollection<string>>();
             set => SetAndNotify(value);
         }
 
-        public CategoryInfoPopupSliderViewModel(CategoryInfoModel categoryInfo)
+        public CategoryInfoPopupSliderViewModel(CategoryInfoModel categoryInfo, string selectedImagePath)
         {
-            ImagePath = new ObservableCollection<string>();
-            ImagePath.Clear();
+            var paths = categoryInfo.GetImagePaths();
+            ImagePaths = new ObservableCollection<string>(paths);
 
-            ImagePath.Add(categoryInfo.TopImagePath!);
-            ImagePath.Add(categoryInfo.LeftImagePath!);
-            ImagePath.Add(categoryInfo.RightImagePath!);
-            ImagePath.Add(categoryInfo.BottomImagePath!);
+            if (string.IsNullOrEmpty(selectedImagePath) || !ImagePaths.Contains(selectedImagePath)) return;
+            ImagePaths.Remove(selectedImagePath);
+            ImagePaths.Insert(0, selectedImagePath);
         }
-
-        
     }
 }

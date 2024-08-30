@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ClosedLoopEconomicsGame.Helpers
 {
@@ -12,7 +8,6 @@ namespace ClosedLoopEconomicsGame.Helpers
     {
         public T ReadJsonFromFile<T>(string filePath)
         {
-            if (string.IsNullOrEmpty(filePath));
             if (!File.Exists(filePath))
                 File.Create(filePath);
 

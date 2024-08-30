@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\Images\EndGamePopup\**" />
+    <EmbeddedResource Remove="Resources\Images\EndGamePopup\**" />
+    <None Remove="Resources\Images\EndGamePopup\**" />
+    <Page Remove="Resources\Images\EndGamePopup\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Fonts\Montserrat-Black.ttf" />
     <None Remove="Resources\Fonts\Montserrat-BlackItalic.ttf" />
     <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
@@ -27,8 +34,6 @@
     <None Remove="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
     <None Remove="Resources\Fonts\Montserrat-Thin.ttf" />
     <None Remove="Resources\Fonts\Montserrat-ThinItalic.ttf" />
-    <None Remove="Resources\Images\EndGamePopup\SadImagePopup.png" />
-    <None Remove="Resources\Images\EndGamePopup\WinnerImagePopup.png" />
     <None Remove="Resources\Images\GamePageBackground.png" />
     <None Remove="Resources\Images\GamePageImages\BlueContainer.png" />
     <None Remove="Resources\Images\GamePageImages\CenterConainerBackground.png" />
@@ -46,10 +51,6 @@
     <None Remove="Resources\Images\StartGamePageImages\GrabageImage.png" />
     <None Remove="Resources\Images\StartGamePageImages\RecycleImage.png" />
     <None Remove="Resources\Images\StartGamePageImages\StartGamePageTextBackground.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\Window\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,8 +86,6 @@
     <Resource Include="Resources\Fonts\Montserrat-SemiBoldItalic.ttf" />
     <Resource Include="Resources\Fonts\Montserrat-Thin.ttf" />
     <Resource Include="Resources\Fonts\Montserrat-ThinItalic.ttf" />
-    <Resource Include="Resources\Images\EndGamePopup\SadImagePopup.png" />
-    <Resource Include="Resources\Images\EndGamePopup\WinnerImagePopup.png" />
     <Resource Include="Resources\Images\GamePageBackground.png" />
     <Resource Include="Resources\Images\GamePageImages\BlueContainer.png" />
     <Resource Include="Resources\Images\GamePageImages\CenterConainerBackground.png" />

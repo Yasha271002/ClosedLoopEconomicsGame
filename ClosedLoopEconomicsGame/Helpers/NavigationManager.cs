@@ -9,10 +9,12 @@ namespace ClosedLoopEconomicsGame.Helpers
         MainPage,
         StartGamePage,
         AfterGamePage,
+        GamePage,
         None
     }
     public enum PopupTypes
     {
+        ExitGamePopup
     }
 
     public class NavigationManager : ObservableObject

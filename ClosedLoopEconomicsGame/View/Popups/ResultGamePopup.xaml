@@ -3,38 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ClosedLoopEconomicsGame.View.Popups"
              xmlns:helpers="clr-namespace:ClosedLoopEconomicsGame.Helpers"
+             xmlns:popups="clr-namespace:ClosedLoopEconomicsGame.ViewModel.Popups"
              mc:Ignorable="d" 
-             d:DesignHeight="716" d:DesignWidth="716">
+             d:DesignHeight="716" d:DesignWidth="716"
+             d:DataContext="{d:DesignInstance popups:ResultGamePopupViewModel}">
     <UserControl.Resources>
         <Style TargetType="Border" x:Key="ButtonBorderStyle">
             <Setter Property="BorderBrush" Value="{DynamicResource MainColor}" />
             <Setter Property="CornerRadius" Value="20" />
         </Style>
     </UserControl.Resources>
-    <Border Style="{DynamicResource PopupBorderStyle}">
+    <Border Style="{DynamicResource PopupBorderStyle}" Width="584" Height="716">
             <Grid>
                 <StackPanel>
                     <TextBlock Style="{DynamicResource GameText}"
                                FontSize="60"
-                               Text="Неплохо!"
+                               Text="{Binding ResultGameModel.Title}"
                                Margin="0 73 0 12"/>
                     <TextBlock Style="{DynamicResource GameText}"
                                FontSize="30"
                                Foreground="#6C6C6C"
                                FontWeight="Medium"
-                               Text="Ты хорошо справился с игрой"/>
-                    <Image Source="../../Resources/Images/EndGamePopup/WinnerImagePopup.png"
+                               Text="{Binding ResultGameModel.Description}"/>
+                    <Image Source="{Binding ResultGameModel.ImagePath, Converter={StaticResource ImageConverter}}"
                            Width="293"
                            Margin="0 46 0 50"/>
-                    <Button Template="{DynamicResource MainButtonTemplate}"
+                <Button Template="{DynamicResource MainButtonTemplate}"
                             Width="317" Height="101"
-                            Content="На главную"
+                            Content="Продолжить"
                             Foreground="White"
-                            Command="helpers:CommonCommands.NavigateCommand"
-                            CommandParameter="{x:Static helpers:PageTypes.MainPage}"/>
-                </StackPanel>
+                            Command="{Binding ClosePopupCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ResultGameModel.Replay}"
+                                             Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Template="{DynamicResource MainButtonTemplate}"
+                            Width="317" Height="101"
+                            Content="Пройти заново"
+                            Foreground="White"
+                            Command="{Binding ClosePopupCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ResultGameModel.Replay}"
+                                             Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
             </Grid>
     </Border>
 </UserControl>

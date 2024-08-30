@@ -41,17 +41,16 @@
                 <Button
                     VerticalAlignment="Bottom"
                     Margin="0 0 0 -30"
-                    Command="{Binding OpenInfoPopupCommand}">
+                    Command="{Binding OpenInfoPopupCommand}"
+                    CommandParameter="{Binding CircleInfoModel.Category.TopImagePath}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
-                                <Image
-                                    Source="{Binding CircleInfoModel.Category.TopImagePath , Converter={StaticResource ImageConverter} }"
-                                    MaxWidth="450"
-                                    MaxHeight="300"
-                                    VerticalAlignment="Bottom"
-                                    Margin="0 0 0 50" />
-                            </Border>
+                            <Image
+                                Source="{Binding CircleInfoModel.Category.TopImagePath , Converter={StaticResource ImageConverter} }"
+                                MaxWidth="500"
+                                MaxHeight="383"
+                                VerticalAlignment="Bottom"/>
+
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -60,17 +59,15 @@
                 <Button
                     HorizontalAlignment="Right"
                     Margin="0 0 60 0"
-                    Command="{Binding OpenInfoPopupCommand}">
+                    Command="{Binding OpenInfoPopupCommand}"
+                    CommandParameter="{Binding CircleInfoModel.Category.LeftImagePath}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
-                                <Image
-                                    Source="{Binding CircleInfoModel.Category.LeftImagePath , Converter={StaticResource ImageConverter}}"
-                                    MaxWidth="350"
-                                    MaxHeight="300"
-                                    VerticalAlignment="Bottom"
-                                    Margin="0 0 0 70" />
-                            </Border>
+                            <Image
+                                Source="{Binding CircleInfoModel.Category.LeftImagePath , Converter={StaticResource ImageConverter}}"
+                                MaxWidth="500"
+                                MaxHeight="383"
+                                VerticalAlignment="Bottom"/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -79,17 +76,15 @@
                 <Button
                     HorizontalAlignment="Left"
                     Margin="50 0 0 0"
-                    Command="{Binding OpenInfoPopupCommand}">
+                    Command="{Binding OpenInfoPopupCommand}"
+                    CommandParameter="{Binding CircleInfoModel.Category.RightImagePath}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
-                                <Image
-                                    Source="{Binding CircleInfoModel.Category.RightImagePath , Converter={StaticResource ImageConverter}}"
-                                    MaxWidth="350"
-                                    MaxHeight="300"
-                                    VerticalAlignment="Bottom"
-                                    Margin=" 0 0 0 70" />
-                            </Border>
+                            <Image
+                                Source="{Binding CircleInfoModel.Category.RightImagePath , Converter={StaticResource ImageConverter}}"
+                                MaxWidth="500"
+                                MaxHeight="383"
+                                VerticalAlignment="Bottom"/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -98,17 +93,15 @@
                 <Button
                     VerticalAlignment="Center"
                     Margin="0 -76 0 0"
-                    Command="{Binding OpenInfoPopupCommand}">
+                    Command="{Binding OpenInfoPopupCommand}"
+                    CommandParameter="{Binding CircleInfoModel.Category.BottomImagePath}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Border Style="{DynamicResource StartGamePageBorderTextBackground}">
-                                <Image
-                                    Source="{Binding CircleInfoModel.Category.BottomImagePath, Converter={StaticResource ImageConverter}}"
-                                    MaxWidth="350"
-                                    MaxHeight="300"
-                                    VerticalAlignment="Bottom"
-                                    Margin="10 0 0 60" />
-                            </Border>
+                            <Image
+                                Source="{Binding CircleInfoModel.Category.BottomImagePath, Converter={StaticResource ImageConverter}}"
+                                MaxWidth="500"
+                                MaxHeight="383"
+                                VerticalAlignment="Bottom"/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -123,8 +116,7 @@
                     <TextBlock Style="{DynamicResource GameText}"
                                FontSize="20"
                                Text="чтобы раскрыть подробную информацию"
-                               Foreground="White"
-                               Margin="0 12 0 0" />
+                               Foreground="White"/>
                 </StackPanel>
             </Grid>
 
@@ -180,6 +172,6 @@
                 Foreground="White"
                 Content="Закрыть"
                 Margin="40"
-                Command="helpers:CommonCommands.ClosePopupCommand"/>
+                Command="helpers:CommonCommands.ClosePopupCommand" />
     </Grid>
 </UserControl>
